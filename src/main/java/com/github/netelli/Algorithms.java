@@ -1,5 +1,6 @@
 package com.github.netelli;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Algorithms {
@@ -13,7 +14,7 @@ public class Algorithms {
         int high = list.size() - 1;
         while (low <= high) {
             int mid = low + high;
-            Integer guess = list.get(mid);
+            int guess = list.get(mid);
             if (guess == item) {
                 return mid;
             }
@@ -24,5 +25,28 @@ public class Algorithms {
             }
         }
         return -1;
+    }
+
+    public List<Integer> selectionSort(List<Integer> list) {
+        List<Integer> newList = new ArrayList<>();
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            int smallest = findSmallest(list);
+            newList.add(list.get(smallest));
+            list.remove(smallest);
+        }
+        return newList;
+    }
+
+    private int findSmallest(List<Integer> list) {
+        int smallest = list.get(0);
+        int smallest_index = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) < smallest) {
+                smallest = list.get(i);
+                smallest_index = i;
+            }
+        }
+        return smallest_index;
     }
 }

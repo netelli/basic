@@ -9,9 +9,18 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class AlgorithmsTest {
+    private Algorithms alg = new Algorithms();
+
+    @Test
+    public void selectionSort() throws Exception {
+        List<Integer> myList = new ArrayList<Integer>(Arrays.asList(5, 3, 6, 2, 10));
+        List<Integer> result = alg.selectionSort(myList);
+        List<Integer> expectedResult = new ArrayList<Integer>(Arrays.asList(2, 3, 5, 6, 10));
+        assertEquals(expectedResult, result);
+    }
+
     @Test
     public void binarySearch() throws Exception {
-        Algorithms alg = new Algorithms();
         List<Integer> myList = new ArrayList<Integer>(Arrays.asList(1, 3, 5, 7, 9));
         int result = alg.binarySearch(myList, 2);
         assertEquals(-1, result);
