@@ -49,4 +49,17 @@ public class Algorithms {
         }
         return smallest_index;
     }
+
+    /**
+     * Used recursion for calculate sum
+     * @param list
+     * @return
+     */
+    public int sum(List<Integer> list) {
+        if (list.isEmpty()) {
+            return 0;
+        } else {
+            return list.get(0) + sum(list.subList(1, list.size()));
+        }
+    }
 }
