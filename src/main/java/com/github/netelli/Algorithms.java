@@ -62,4 +62,34 @@ public class Algorithms {
             return list.get(0) + sum(list.subList(1, list.size()));
         }
     }
+
+    /**
+     * Used recursion for calculate count of the elements in the list
+     * @param list
+     * @return
+     */
+    public int count(List list) {
+        if (list.isEmpty()) {
+            return 0;
+        } else {
+            return 1 + count(list.subList(1, list.size()));
+        }
+    }
+
+    public int findBiggest(List<Integer> list) {
+        if (list.size() == 2) {
+            if (list.get(0) > list.get(1)) {
+                return list.get(0);
+            } else {
+                return list.get(1);
+            }
+        } else {
+            int sub_biggest = findBiggest(list.subList(1, list.size()));
+            if (list.get(0) > sub_biggest) {
+                return list.get(0);
+            } else {
+                return sub_biggest;
+            }
+        }
+    }
 }

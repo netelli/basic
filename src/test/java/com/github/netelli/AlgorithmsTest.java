@@ -12,6 +12,19 @@ public class AlgorithmsTest {
     private Algorithms alg = new Algorithms();
 
     @Test
+    public void findBiggestTest() throws Exception {
+        int result = alg.findBiggest(new ArrayList<>(Arrays.asList(3, 9, 6, 1, 4)));
+        assertEquals(9, result);
+    }
+
+    @Test
+    public void countTest() throws Exception {
+    int result = alg.count(new ArrayList<>(Arrays.asList(2, 4, 6, 7)));
+    assertEquals(4, result);
+    }
+
+
+    @Test
     public void sumTest() throws Exception {
         int result = alg.sum(new ArrayList<>(Arrays.asList(1, 2, 3, 6)));
         assertEquals(12, result);
